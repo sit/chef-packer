@@ -1,21 +1,21 @@
 
 node.default[:packer][:url_base] = "https://dl.bintray.com/mitchellh/packer"
-node.default[:packer][:version] = "0.2.0"
+node.default[:packer][:version] = "0.3.1"
 node.default[:packer][:arch] = kernel['machine'] =~ /x86_64/ ? "amd64" : "386"
 
 node.default[:packer][:raw_checksums] = <<-EOF
-    f57fbe604bfc0a8ceb0eb1edf1eaff7005f4c01eed599510e12009ad028c8513  0.2.0_darwin_386.zip
-    1ef36ba16e774b7033c75be06245632959e055870ecb074696489b1c964182c6  0.2.0_darwin_amd64.zip
-    5c6baaad8b47edfd7ad7c7ce9f9a6c2714a81a71ec9af263874b5b4b0f9bc0e8  0.2.0_freebsd_386.zip
-    f36f8c70344111618479a7110789e2cc7725159e385713fe7f4461035fb43737  0.2.0_freebsd_amd64.zip
-    a6913d31a61da186c3e14aca33f2ef2abd35c4f44d61ec768da512ce78154fcc  0.2.0_freebsd_arm.zip
-    acb56e4bf59c304cc0600c356ad256bd49ffa91c147d12a65ec94a49eda3991c  0.2.0_linux_386.zip
-    9a36268c92edba2a59e8dfe9153ab41dd5a2e0eaa79595344781772214891462  0.2.0_linux_amd64.zip
-    5b3ee395836c8b5f4f28b2297a30cf8c5bf274af1e8af1136a2524b8482211bf  0.2.0_linux_arm.zip
-    488dd4f80f7872df6716f0390f995b0ca9c11af219ecf8d436daeba3f19ad992  0.2.0_openbsd_386.zip
-    46d0bebb9d72c3c15d63c389047d0687546d66641f15b18b571bd81a609c5e7e  0.2.0_openbsd_amd64.zip
-    982d25699deb5fe703d5ef335dd028964e8330a18816638b1f11ed4cc234d6af  0.2.0_windows_386.zip
-    7cf9e18a127d8e59accd0b950d623b8b9256e403ef1abd7918607413852c790e  0.2.0_windows_amd64.zip
+    13cd84702dec746b7c6abdf874940f07f2d9e4cc60ea8681647aecdf07f9f20d  0.3.1_darwin_386.zip
+    4b2cd0728799422c478853e87417c5efbf5e8b2d76c91b1cd910a2a2910c1585  0.3.1_darwin_amd64.zip
+    f34384ae66ce78c0cc7594ee7aade4bb35e9253ba6e6c5c19d3a7741c2e611b1  0.3.1_freebsd_386.zip
+    f2c82874156c882703ae5b589b1566da55e41ee5d1e3f3b77ce00c5b67fe33a7  0.3.1_freebsd_amd64.zip
+    d9f0f8b07ecb9f5bf012539097a3da012cf7ae6cbc92b80552f83dd72bbb4d52  0.3.1_freebsd_arm.zip
+    43a9b7cad157eab3ce0757fbd52ed2c3741ca46c6cf0b2e89ab55c5f81a43ac6  0.3.1_linux_386.zip
+    ad4e8972b07be73c7de716d07a79c43630715fc0fa517b9046e33fbc13cd59b5  0.3.1_linux_amd64.zip
+    57775d611f02efe24a6748bf3cba9427615bb1c6bc01e9bb6fd7936573240dd9  0.3.1_linux_arm.zip
+    7b63dcbbf454bdfa180f7c1f58203c618aab54bcb2598a558b5b4e484a20d2dc  0.3.1_openbsd_386.zip
+    71cec0d204285a3208ab52cea16e9d4c1c6653e9e60793af398dfa0901840192  0.3.1_openbsd_amd64.zip
+    ce3199c536c4e9d9c224ca38a94b63eee56f0d5d74ad29d2dc4d9052b9961e66  0.3.1_windows_386.zip
+    865e0a4fba31ca413fc95797ab6efc84ca7fa33dc4cb8b065a2784400641f394  0.3.1_windows_amd64.zip
 EOF
 node.default[:packer][:checksum] = node[:packer][:raw_checksums].split("\n").find { |c|
     c =~ /#{node[:packer][:version]}_#{node[:os]}_#{node[:packer][:arch]}/
