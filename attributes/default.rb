@@ -1,9 +1,22 @@
-
 node.default[:packer][:url_base] = "https://dl.bintray.com/mitchellh/packer"
 node.default[:packer][:version] = "0.3.1"
 node.default[:packer][:arch] = kernel['machine'] =~ /x86_64/ ? "amd64" : "386"
 
-node.default[:packer][:raw_checksums] = <<-EOF
+# Transform raw output of the bintray checksum list into a Hash[filename, checksum].
+# https://dl.bintray.com/mitchellh/packer/${VERSION}_SHA256SUMS?direct
+node.default[:packer][:checksums] = Hash[%w{
+    7ec575c1db11b83e75072477b84aed8158f3a75fc6a02f3ccab243cfb756dddf  0.3.0_darwin_386.zip
+    97b42d78f958ad4a469e40761a4a8ccc21b6b604b9d200d9e827f357422e8b23  0.3.0_darwin_amd64.zip
+    5671b34471b65543bed732e6f33eb74ef9a8e4d8b505826b72a727874c8171bd  0.3.0_freebsd_386.zip
+    64353c3fabfe2efb6d68d12c50dd0b5b2287b2ffadba18daf02339cbf8db531d  0.3.0_freebsd_amd64.zip
+    7697a1e047d76a884189b6dd22cc30d0043a67df5d96c44404c29440f0b69eb0  0.3.0_freebsd_arm.zip
+    165e36fb647252afe844a67a482968daf19f4a95609030959a1680eff78f7289  0.3.0_linux_386.zip
+    5f5798a035e3147ec5ccf6b8ec4ba286b37bc893394dc86a18c02215911bf019  0.3.0_linux_amd64.zip
+    240155a91ea66216a5a17606228a0ba4366386e61bae77073ff5e328e618b76a  0.3.0_linux_arm.zip
+    0ba91a1bc3ee3391b18fec14280c48f0ff17a6c855f7e0db19632b97b52de310  0.3.0_openbsd_386.zip
+    bafa01943da733853da1891e74fb8df14c74f3d37d080e90af9b6e53c432cc83  0.3.0_openbsd_amd64.zip
+    eb5cb829f54341f12397834ea37073d2040d05019fc730854d32efdf222540ee  0.3.0_windows_386.zip
+    1416f90679674fa5240875eaa126889bd2d664f899cfc92fd3c27a8e3d4cc04b  0.3.0_windows_amd64.zip
     13cd84702dec746b7c6abdf874940f07f2d9e4cc60ea8681647aecdf07f9f20d  0.3.1_darwin_386.zip
     4b2cd0728799422c478853e87417c5efbf5e8b2d76c91b1cd910a2a2910c1585  0.3.1_darwin_amd64.zip
     f34384ae66ce78c0cc7594ee7aade4bb35e9253ba6e6c5c19d3a7741c2e611b1  0.3.1_freebsd_386.zip
@@ -16,7 +29,67 @@ node.default[:packer][:raw_checksums] = <<-EOF
     71cec0d204285a3208ab52cea16e9d4c1c6653e9e60793af398dfa0901840192  0.3.1_openbsd_amd64.zip
     ce3199c536c4e9d9c224ca38a94b63eee56f0d5d74ad29d2dc4d9052b9961e66  0.3.1_windows_386.zip
     865e0a4fba31ca413fc95797ab6efc84ca7fa33dc4cb8b065a2784400641f394  0.3.1_windows_amd64.zip
-EOF
-node.default[:packer][:checksum] = node[:packer][:raw_checksums].split("\n").find { |c|
-    c =~ /#{node[:packer][:version]}_#{node[:os]}_#{node[:packer][:arch]}/
-}.split()[0]
+    621cfef231536b01570de59cea256adf06d79442777ff1505d64728d7395e14e  0.3.2_darwin_386.zip
+    63ee5ade3f0d48fc9dbb3b4f965a7629fed7ad54b23a822b139c740d93de3503  0.3.2_darwin_amd64.zip
+    00ae2bdf15f0ca4c0defe5908167ddf1b3c08afe39ffcfdeef3bd70b7d1ba058  0.3.2_freebsd_386.zip
+    33305e15fba489de47540f45ffb26cf117178ed2c8c36b3ee3871e779c64ae4a  0.3.2_freebsd_amd64.zip
+    b7b47972825bb9dfa518dbd9db3c5e83bcd5312cbd21c8fc5c74be3207f5ea33  0.3.2_freebsd_arm.zip
+    cdbbd8ae2e0aee39902fbb584af3ea03440d56902dd141db8756871943bd3cab  0.3.2_linux_386.zip
+    f3b12a07242859ab8bed6f150ce7f29bfe537e10668116220b9f4517d0d512a5  0.3.2_linux_amd64.zip
+    8f5cd1915d73b4ac996002dd9bbff0e9bbc5927dc9f638b6dcff3143f46bed3a  0.3.2_linux_arm.zip
+    85c351aba52d9ba1f115b8c5d4f7b25f0db200c92a7b0468132e1ec20cb1b6c5  0.3.2_openbsd_386.zip
+    abb7621c05a1dba881fc4571651bbede0db74a20807e7b62e897de613becd31c  0.3.2_openbsd_amd64.zip
+    4768d3176937e69ced608f93e890895e11347e4d84bdb782c267d41a350ec978  0.3.2_windows_386.zip
+    0a5e67c7a86dbbfdafc2b13aae1be79f0bf427a7a112fd41542e02b4bfac424f  0.3.2_windows_amd64.zip
+    1e74a1ea6f7afa590cd9749a707e73a4bd39092b9cb9782906c47bf5e35eae20  0.3.3_darwin_386.zip
+    a6b9ff771196194a0845bb47fa9d56229b735a9ce11fc2a920ca3b81ded9bfd1  0.3.3_darwin_amd64.zip
+    020923c56d609bbaadecd169d5c951a324f649ed975774f5ac6cb7e78c350515  0.3.3_freebsd_386.zip
+    cd57bbd0b0b931da47d5b3943071cf1e2a4d67d7c418377c9238c371ec164d9f  0.3.3_freebsd_amd64.zip
+    c37ce808f1dad4a7b7709dc891efbdf56fc83957f6bdd2e804d0f3f8e1ae5ced  0.3.3_freebsd_arm.zip
+    4a238a3adcb1580935c562e10a09ac4d658a3abafac5ee726c710c3217768078  0.3.3_linux_386.zip
+    a0c100394d6523d7f51f5543255a31ed608e0255d18df204c5e1ec25d5505ad8  0.3.3_linux_amd64.zip
+    e8ec251830ba273a1676c7c980b525d40e853cca058da10a802b50f58a97643d  0.3.3_linux_arm.zip
+    5252c9772de82d0ecf61baca1d21de3d59f8b96b658241ba66638a88adde90bd  0.3.3_openbsd_386.zip
+    b2265a156dc40f92e33df852362333ab58a4f3e0b41002cd72f3ba0e616d971f  0.3.3_openbsd_amd64.zip
+    d4c37c81db34fd06c98249a26a274026d0382a23447a637a3ca1d3ec8412e9b9  0.3.3_windows_386.zip
+    1032105dae3fd1cf1214b8d3d16466687f1cea426992881e029de37cb5788992  0.3.3_windows_amd64.zip
+    f947d76cd48ab47df41ea36a57312ed71455f5915125acfc07232442297f593e  0.3.4_darwin_386.zip
+    2e5e802bd1aad368241649f33ff97904a21291fe427510cdc45502faf50dd6d0  0.3.4_darwin_amd64.zip
+    ab49a7a600cd3255bdbb068e50e6d3cc38fe4e7af5d6fed32fc6a6d874dd4077  0.3.4_freebsd_386.zip
+    ea60f4f3f19bd317f37a3af369b4409dbb220005b80f559b067b40fd860a6b63  0.3.4_freebsd_amd64.zip
+    85043f5407d59554eb62125c030604c5f11335f90c25abdb0435b31e83b0d2e3  0.3.4_freebsd_arm.zip
+    78399adf92954c61cc6390e95d075322ece834181d81fc0b40569ba96f370ca6  0.3.4_linux_386.zip
+    6a6a93682c4586ed87e4bd857e5eff30f2c63f6b248ba349a7d9cf550dda7183  0.3.4_linux_amd64.zip
+    a8864c6aac25176992729a93bcbdb2137c8c82d089e9772d1e81dc23977371b1  0.3.4_linux_arm.zip
+    3ca8bae1622af6f82a2a9cdf4e5c394517a5d20a60c765c697f5b38599f33a11  0.3.4_openbsd_386.zip
+    2b1d2fd4ee170de1c59a872824786079e66aa59236f939209a9bf954a4d7f676  0.3.4_openbsd_amd64.zip
+    785330311a633d3314ac82e4761257c477b30d2f8fa3c892245238c4099bb850  0.3.4_windows_386.zip
+    2f036336455060729b376190ff0e6c6dd4b90b484dd65de0a15542e1ce4411c0  0.3.4_windows_amd64.zip
+    824160883219d0293cf325918ba45fd2a810b11f3b174bb9268a8f4b11b7916e  0.3.5_darwin_386.zip
+    4fd7193ecca1b410bcb74c0458f87de76644642a6972ee991cfa40f32dfc1eff  0.3.5_darwin_amd64.zip
+    9f396c605573ebfed5aa0a4a90175894eb3f25c8eb1998e6f39ea733fceb684f  0.3.5_freebsd_386.zip
+    79c08435549517d304246d8d170cf3311e15634df461a4dc1676a9f812bf651e  0.3.5_freebsd_amd64.zip
+    50fe2fc7e8f9ad6c4be92e1390d6ea62899c82802cc6e40d4b4b2c8e3db4084f  0.3.5_freebsd_arm.zip
+    369988126f94817cc48828dd93f21c6a79529e59f0e13d66a71a79270ed36367  0.3.5_linux_386.zip
+    e3ac2f35f2b7586ed43b85e1042396d21c37ece15567b877c576da5afc81c6ee  0.3.5_linux_amd64.zip
+    7e2c3fd13e2525e0996fe1add091e8162cd86a3f56f11c0e5aab98325078e0e3  0.3.5_linux_arm.zip
+    76604df2926a3b0531411996211588da1315d8f47cb7d4c4d981d2b2e7f2f8c6  0.3.5_openbsd_386.zip
+    4cafbe712f2031e3a1e1289fe7719118c99619c65e73a697ec347044f1cf0117  0.3.5_openbsd_amd64.zip
+    175d7149e5cdc01949c999d18158f4e3549d33e71c37738f1c79e1e1deca158d  0.3.5_windows_386.zip
+    af4de0695b26f1d445b2addb45194ffdd58272f751daa596c69cb5424583b68a  0.3.5_windows_amd64.zip
+    2ebc6e307c1ce85c11594a66f532ec32dc7abc6a5542c728b8eb556ff3c66f04  0.3.6_darwin_386.zip
+    707f3ece075234afdb69be3819792ab49876ff30728dba07881bae58bd1c60fd  0.3.6_darwin_amd64.zip
+    d8127fb0fc1060693094b6390efc7adeb65ef8f3cc9454b484b9bb3175def6b8  0.3.6_freebsd_386.zip
+    7c94f004e53b4acc53b966689037f9fce246c465c09016d0a6d062302307b26b  0.3.6_freebsd_amd64.zip
+    069ed1f1c7f3533ee4d5413bee8d845592aa65ba5217ffe50a2fd80508273083  0.3.6_freebsd_arm.zip
+    4e2546ee4c78cedf3037333dc9f0e06bcca61fd4dc3c127a7d990e85eaf543d0  0.3.6_linux_386.zip
+    5a7170957f94542cc8d1e40a4458be86b63484a9a139a6aa9b05e13179bd3759  0.3.6_linux_amd64.zip
+    03500fb1110e782eab82bfe22e836540775a063d6988389102dd03329c613686  0.3.6_linux_arm.zip
+    c5307a2ebab6ab96d23d268cf77582bc3fee42a0b5245a16748faa8007808fce  0.3.6_openbsd_386.zip
+    19631dcc82ac343bdad9cdbdf7f731ab078e400e385c47a8b0c89cbf3c889e93  0.3.6_openbsd_amd64.zip
+    76b853b41c86aeeeecd6bd723eb40b577d91b1ae94f345bc78e6ec79f9b2bb33  0.3.6_windows_386.zip
+    dbfb59096c8322dd933c48f6c334b9678e03ae7dd6b611979d8bc1665a93f6f9  0.3.6_windows_amd64.zip
+}.each_slice(2).to_a.collect{|checksum,name| [name, checksum]}]
+
+filename = "#{node[:packer][:version]}_#{node[:os]}_#{node[:packer][:arch]}.zip"
+node.default[:packer][:checksum] = node[:packer][:checksums][filename]
