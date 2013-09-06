@@ -1,4 +1,3 @@
-
 node.default[:packer][:url_base] = "https://dl.bintray.com/mitchellh/packer"
 node.default[:packer][:version] = "0.3.6"
 node.default[:packer][:arch] = kernel['machine'] =~ /x86_64/ ? "amd64" : "386"
