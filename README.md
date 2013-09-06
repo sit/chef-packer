@@ -18,7 +18,7 @@ This will put Packer into `/usr/local` in a `packer-*version*` directory, with a
 * `node[:packer][:version]` - The version of Packer to install.
 * `node[:packer][:arch]` - Architecture to use; auto-detects amd64 and 386 but you must override with arm if desired.
 * `node[:packer][:checksum]` - SHA-256 checksum of appropriate binary. Should be auto-detected.
-* `node[:packer][:raw_checksums]` - The contents of the upstream checksum file to allow checksum auto-detection.
+* `node[:packer][:checksums]` - A `Hash` mapping file names to checksums.
 
 # Author
 
