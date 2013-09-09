@@ -3,6 +3,8 @@ node.default[:packer][:url_base] = "https://dl.bintray.com/mitchellh/packer"
 node.default[:packer][:version] = "0.3.1"
 node.default[:packer][:arch] = kernel['machine'] =~ /x86_64/ ? "amd64" : "386"
 
+# Transform raw output of the bintray checksum list into a Hash[filename, checksum].
+# https://dl.bintray.com/mitchellh/packer/${VERSION}_SHA256SUMS?direct
 node.default[:packer][:raw_checksums] = <<-EOF
     13cd84702dec746b7c6abdf874940f07f2d9e4cc60ea8681647aecdf07f9f20d  0.3.1_darwin_386.zip
     4b2cd0728799422c478853e87417c5efbf5e8b2d76c91b1cd910a2a2910c1585  0.3.1_darwin_amd64.zip
@@ -17,6 +19,8 @@ node.default[:packer][:raw_checksums] = <<-EOF
     ce3199c536c4e9d9c224ca38a94b63eee56f0d5d74ad29d2dc4d9052b9961e66  0.3.1_windows_386.zip
     865e0a4fba31ca413fc95797ab6efc84ca7fa33dc4cb8b065a2784400641f394  0.3.1_windows_amd64.zip
 EOF
-node.default[:packer][:checksum] = node[:packer][:raw_checksums].split("\n").find { |c|
-    c =~ /#{node[:packer][:version]}_#{node[:os]}_#{node[:packer][:arch]}/
-}.split()[0]
+node.default[:packer][:checksums] = Hash[
+    node[:packer][:raw_checksums].split("\n").collect { |s| s.split.reverse }
+]
+filename = "#{node[:packer][:version]}_#{node[:os]}_#{node[:packer][:arch]}.zip"
+node.default[:packer][:checksum] = node[:packer][:checksums][filename]
