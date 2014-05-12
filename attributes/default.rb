@@ -5,18 +5,18 @@ node.default[:packer][:arch] = kernel['machine'] =~ /x86_64/ ? "amd64" : "386"
 # Transform raw output of the bintray checksum list into a Hash[filename, checksum].
 # https://dl.bintray.com/mitchellh/packer/${VERSION}_SHA256SUMS?direct
 node.default[:packer][:raw_checksums] = <<-EOF
-    a0d8db4944d0024af05e256357cad014662eddefef67b1b2fe8a5060659a5be2  0.5.1_darwin_386.zip
-    56bec31f0d3540d566ef86979b25367660d7e72c010c9d87ef91c5c2138e9eae  0.5.1_darwin_amd64.zip
-    337651f4dd4f897413eb07e8d2cd821a0246d04c4235ce398af58f7939e097e1  0.5.1_freebsd_386.zip
-    ae356b68517aa75d08736c44d838b6bd4a19203315ee8afffff5de35684e1464  0.5.1_freebsd_amd64.zip
-    bbd2468d69195b4227034aa07474e87c2bcfe2250ae620085219e870e6b33bf6  0.5.1_freebsd_arm.zip
-    cc7741165a3d5f66c1d4af3ea3b1e80ebe03cb2ce5e0ff27ff43ecac64f1dc7a  0.5.1_linux_386.zip
-    fa68149f4356ad48a6393dbf9e81839a40aad115e5bad83833ff9ccf6a0239b8  0.5.1_linux_amd64.zip
-    6a6b724df3bc51478cc1cd4ccbc000924bbe9018a4ded74d3b6e0409cb9092e0  0.5.1_linux_arm.zip
-    a2ff5410a871baafef2ffd1924f5b6d7fe1ba443ba0b23071e2c928935d173e6  0.5.1_openbsd_386.zip
-    41c1edd5faf9041081f1dbaa6eb14e9f18cdb25a8dab85f33c08701bd0275817  0.5.1_openbsd_amd64.zip
-    350480400d31c00e1604fce8744b5f3d279c15cf8c49cd7b59e1412e316dae01  0.5.1_windows_386.zip
-    6c5c43aa92f41f23199b9142f08950e57e400e3fed9196132a111f65b499c214  0.5.1_windows_amd64.zip
+  bfd150a1719e297ee9c560a3e7b59161c3ebcbe9cd6f077f14d37f105c09e0e7  0.6.0_darwin_386.zip
+  2720b2a6b2d1ef083fa1aee5912d82915a92dc07f925ff0499ba5c21aa7c1da9  0.6.0_darwin_amd64.zip
+  3608d1b1d9d46e5b410e609cbe060713abf8d95a643954090d94a1fe4b9dd29d  0.6.0_freebsd_386.zip
+  882729128297d48db58310684d5343f82b92b8fc094a408b20497cf873145f87  0.6.0_freebsd_amd64.zip
+  dbf741b53f789a081646899a1daa0d31425cbb1144685fd466ed07603d115525  0.6.0_freebsd_arm.zip
+  1c770c5e84565c071eaf779d82a7b1de8e5ca160ebb5b8150f5b534e2577c098  0.6.0_linux_386.zip
+  3c3c2d5fff21e0ba9aa25a18fcdf8ec04fbbd2f7364c74d843124336d1d7b36c  0.6.0_linux_amd64.zip
+  90ebccc90739d3f51cc73008ed4eb201c74e49ed5ce944d124b3c860fb6dce91  0.6.0_linux_arm.zip
+  32829f5a2f2dbee37eb21214f2e0636e0f9245ae887b026be4960cbc91884d53  0.6.0_openbsd_386.zip
+  8635f1a4634100461869009e63406025f14096ff1cec63a7f1686e9b1778fdf8  0.6.0_openbsd_amd64.zip
+  18eb6a9262447f1e64850ccba7772d509af35a465a109c0924ccf5e51bbff898  0.6.0_windows_386.zip
+  882565c28ee78251116bf70df0d0aea22e215ec648434f22caf1fea84478a003  0.6.0_windows_amd64.zip
 EOF
 node.default[:packer][:checksums] = Hash[
     node[:packer][:raw_checksums].split("\n").collect { |s| s.split.reverse }
