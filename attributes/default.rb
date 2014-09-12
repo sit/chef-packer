@@ -1,22 +1,22 @@
 node.default[:packer][:url_base] = "https://dl.bintray.com/mitchellh/packer"
-node.default[:packer][:version] = "0.7.0"
+node.default[:packer][:version] = "0.7.1"
 node.default[:packer][:arch] = kernel['machine'] =~ /x86_64/ ? "amd64" : "386"
 
 # Transform raw output of the bintray checksum list into a Hash[filename, checksum].
 # https://dl.bintray.com/mitchellh/packer/${VERSION}_SHA256SUMS?direct
 node.default[:packer][:raw_checksums] = <<-EOF
-    c80292822fc8d4bfd8ef61f1f1226efeff8bb1f6e903c0c66bc2472f3cf4ff07  packer_0.7.0_darwin_386.zip
-    9866e16075a6dced7afb22cf151dd85062cc5a538cb5d5a3a3bfbe4e3f5ed2e6  packer_0.7.0_darwin_amd64.zip
-    fdc40a9e34d158ae3c6b18cfc80c5fd747ecdb7db8a568a53189b884bdfad0e7  packer_0.7.0_freebsd_386.zip
-    08087c2217ce120cb01f90a5bc56847a746169cdc501aecf5458aa106892b9dd  packer_0.7.0_freebsd_amd64.zip
-    ecc9d1d4fca94c70a32c859875a0631f594f059d4029460b8b4bf0832c384fb9  packer_0.7.0_freebsd_arm.zip
-    1f21e15ef181efad3a733cfc36ad316037572c7fe64a8abcca45ce90578b2c12  packer_0.7.0_linux_386.zip
-    8e42100cab8c120654868c04e76fdf13b8dcc5af38490ba5fcdc064bef89f519  packer_0.7.0_linux_amd64.zip
-    34166bf125af267f48083c1000e8a73c7c1231e8635b3b38bc3a3d02e86b37c3  packer_0.7.0_linux_arm.zip
-    d6862907c9b892418fff2c95ce0f1ecb1cc86cbddbfb3b2e1d5113cd389cfcaa  packer_0.7.0_openbsd_386.zip
-    166f3bcb1b60511c957e69b5dba269a45471117ea0d376514c70b6ea33c064f6  packer_0.7.0_openbsd_amd64.zip
-    e7a6f4b7df7b7afc740eb17749a949806740cced1f7e10a4d60b045b400fb9ee  packer_0.7.0_windows_386.zip
-    78c73b72178e2f8c5ff485449ef45dfe1ae375fb0f97634bac2e449a14d5448f  packer_0.7.0_windows_amd64.zip
+    198493bed2eb8676b8232418b49f95c1d8f7a197957c24f42aa67d030aa1ee0a  packer_0.7.1_darwin_386.zip
+    10b266d9020b72ff09a38cd7b6b42a3ec4bd78b1b13a83e9a5c433d504378322  packer_0.7.1_darwin_amd64.zip
+    d4dd7ee066d8e3e61c3bb6830b9e97000e77d6919f053313f1f0f666d0910cf8  packer_0.7.1_freebsd_386.zip
+    01032401c48267c54899631101091139c8954f189966ff1624d1633f2d0a4114  packer_0.7.1_freebsd_amd64.zip
+    a106335a748caf7d3622dd3fc44ce7dd59fe84019214246117afef00b46941df  packer_0.7.1_freebsd_arm.zip
+    905a68990344129efc19f4d508e224cc76a0b2f8bcb45b831a0ac3c72cdaf462  packer_0.7.1_linux_386.zip
+    4f7b8cd96a147f9473cc724397613c8d98bbf0d8cb037b122785ff252eb12581  packer_0.7.1_linux_amd64.zip
+    2dafdcb9ffc40f9490885ef7de6c02c490b2410a5ca9e4c2d6b61b4c3581f540  packer_0.7.1_linux_arm.zip
+    9a4927e7bc84935f93599957cabad61fa06a6007a2ff55ac1fa7f661a1856775  packer_0.7.1_openbsd_386.zip
+    a9634c12fe4f4cf6283b15f0f93a24246963ce1701944332dc5fa4242f88512e  packer_0.7.1_openbsd_amd64.zip
+    1626cdcb8f6261f7f964c674f45c5ccd804b687e8c7f637af93ff12d0e86b89e  packer_0.7.1_windows_386.zip
+    f100f80494aff1a489cec1e51178ff939b99dd2b9c05d95a8fde668ce0c8699e  packer_0.7.1_windows_amd64.zip
 EOF
 node.default[:packer][:checksums] = Hash[
     node[:packer][:raw_checksums].split("\n").collect { |s| s.split.reverse }
