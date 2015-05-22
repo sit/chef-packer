@@ -9,7 +9,7 @@
 include_recipe "ark"
 
 ark 'packer' do
-    url "#{node[:packer][:url_base]}_#{node[:packer][:version]}_#{node[:os]}_#{node[:packer][:arch]}.zip"
+    url "#{node[:packer][:url_base]}/packer_#{node[:packer][:version]}_#{node[:os]}_#{node[:packer][:arch]}.zip"
     version node[:packer][:version]
     checksum node[:packer][:checksum]
     has_binaries ["packer"]
