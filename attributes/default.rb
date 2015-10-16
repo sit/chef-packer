@@ -1,25 +1,25 @@
 node.default[:packer][:url_base] = "https://dl.bintray.com/mitchellh/packer"
-node.default[:packer][:version] = "0.5.1"
+node.default[:packer][:version] = "0.7.1"
 node.default[:packer][:arch] = kernel['machine'] =~ /x86_64/ ? "amd64" : "386"
 
 # Transform raw output of the bintray checksum list into a Hash[filename, checksum].
 # https://dl.bintray.com/mitchellh/packer/${VERSION}_SHA256SUMS?direct
 node.default[:packer][:raw_checksums] = <<-EOF
-    a0d8db4944d0024af05e256357cad014662eddefef67b1b2fe8a5060659a5be2  0.5.1_darwin_386.zip
-    56bec31f0d3540d566ef86979b25367660d7e72c010c9d87ef91c5c2138e9eae  0.5.1_darwin_amd64.zip
-    337651f4dd4f897413eb07e8d2cd821a0246d04c4235ce398af58f7939e097e1  0.5.1_freebsd_386.zip
-    ae356b68517aa75d08736c44d838b6bd4a19203315ee8afffff5de35684e1464  0.5.1_freebsd_amd64.zip
-    bbd2468d69195b4227034aa07474e87c2bcfe2250ae620085219e870e6b33bf6  0.5.1_freebsd_arm.zip
-    cc7741165a3d5f66c1d4af3ea3b1e80ebe03cb2ce5e0ff27ff43ecac64f1dc7a  0.5.1_linux_386.zip
-    fa68149f4356ad48a6393dbf9e81839a40aad115e5bad83833ff9ccf6a0239b8  0.5.1_linux_amd64.zip
-    6a6b724df3bc51478cc1cd4ccbc000924bbe9018a4ded74d3b6e0409cb9092e0  0.5.1_linux_arm.zip
-    a2ff5410a871baafef2ffd1924f5b6d7fe1ba443ba0b23071e2c928935d173e6  0.5.1_openbsd_386.zip
-    41c1edd5faf9041081f1dbaa6eb14e9f18cdb25a8dab85f33c08701bd0275817  0.5.1_openbsd_amd64.zip
-    350480400d31c00e1604fce8744b5f3d279c15cf8c49cd7b59e1412e316dae01  0.5.1_windows_386.zip
-    6c5c43aa92f41f23199b9142f08950e57e400e3fed9196132a111f65b499c214  0.5.1_windows_amd64.zip
+    198493bed2eb8676b8232418b49f95c1d8f7a197957c24f42aa67d030aa1ee0a  packer_0.7.1_darwin_386.zip
+    10b266d9020b72ff09a38cd7b6b42a3ec4bd78b1b13a83e9a5c433d504378322  packer_0.7.1_darwin_amd64.zip
+    d4dd7ee066d8e3e61c3bb6830b9e97000e77d6919f053313f1f0f666d0910cf8  packer_0.7.1_freebsd_386.zip
+    01032401c48267c54899631101091139c8954f189966ff1624d1633f2d0a4114  packer_0.7.1_freebsd_amd64.zip
+    a106335a748caf7d3622dd3fc44ce7dd59fe84019214246117afef00b46941df  packer_0.7.1_freebsd_arm.zip
+    905a68990344129efc19f4d508e224cc76a0b2f8bcb45b831a0ac3c72cdaf462  packer_0.7.1_linux_386.zip
+    4f7b8cd96a147f9473cc724397613c8d98bbf0d8cb037b122785ff252eb12581  packer_0.7.1_linux_amd64.zip
+    2dafdcb9ffc40f9490885ef7de6c02c490b2410a5ca9e4c2d6b61b4c3581f540  packer_0.7.1_linux_arm.zip
+    9a4927e7bc84935f93599957cabad61fa06a6007a2ff55ac1fa7f661a1856775  packer_0.7.1_openbsd_386.zip
+    a9634c12fe4f4cf6283b15f0f93a24246963ce1701944332dc5fa4242f88512e  packer_0.7.1_openbsd_amd64.zip
+    1626cdcb8f6261f7f964c674f45c5ccd804b687e8c7f637af93ff12d0e86b89e  packer_0.7.1_windows_386.zip
+    f100f80494aff1a489cec1e51178ff939b99dd2b9c05d95a8fde668ce0c8699e  packer_0.7.1_windows_amd64.zip
 EOF
 node.default[:packer][:checksums] = Hash[
     node[:packer][:raw_checksums].split("\n").collect { |s| s.split.reverse }
 ]
-filename = "#{node[:packer][:version]}_#{node[:os]}_#{node[:packer][:arch]}.zip"
+filename = "packer_#{node[:packer][:version]}_#{node[:os]}_#{node[:packer][:arch]}.zip"
 node.default[:packer][:checksum] = node[:packer][:checksums][filename]
