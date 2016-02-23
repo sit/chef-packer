@@ -1,4 +1,4 @@
-node.default['packer']['url_base'] = 'https://dl.bintray.com/mitchellh/packer'
+node.default['packer']['url_base'] = 'https://releases.hashicorp.com/packer'
 node.default['packer']['version'] = '0.8.6'
 node.default['packer'][node.default['packer']['version']]['prefix'] = ''
 node.default['packer']['arch'] = kernel['machine'] =~ /x86_64/ ? "amd64" : "386"
