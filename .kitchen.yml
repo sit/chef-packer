@@ -1,6 +1,8 @@
 ---
 driver_plugin: vagrant
-driver_config:
+
+provisioner:
+  name: chef_zero
   require_chef_omnibus: true
 
 platforms:
@@ -20,8 +22,8 @@ platforms:
   driver_config:
     box: opscode-centos-5.9
     box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_centos-5.9_provisionerless.box
+- name: centos-7.1
 
 suites:
 - name: default
   run_list: ["recipe[packer]"]
-  attributes: {}
