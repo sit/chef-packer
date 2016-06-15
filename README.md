@@ -39,4 +39,6 @@ to verify integrity.
 
 # Author
 
-Author:: Emil Sit (<sit@hadapt.com>)
+Emil Sit (<sit@hadapt.com>) http://github.com/sit
+Alex Romanov (<alex@strataconsulting.com>) http://github.com/netflash
+
