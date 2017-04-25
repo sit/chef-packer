@@ -119,6 +119,56 @@ node.default['packer']['0.12.0']['raw_checksums'] = <<-EOF
     4d1f9733b3cafc9e0ab2b1e9957dc2621a57f209a78d51ac5f5312cbcbb4e300  packer_0.12.0_windows_amd64.zip
 EOF
 
+node.default['packer']['0.12.1']['prefix'] = "packer_"
+node.default['packer']['0.12.1']['raw_checksums'] = <<-EOF
+    c056e8deeffedc52211826ac744e20f3f263aa2f439f67810e557d4641bd7a55  packer_0.12.1_darwin_386.zip
+    a5295f267345a744369b26a5123344eba8e9db67e64ec1a7a575efbd794de280  packer_0.12.1_darwin_amd64.zip
+    0887e48f2339a45a97b29f709c0304d58a965f919b0547dd0d29c622b3ff1df5  packer_0.12.1_darwin_arm.zip
+    c6267fd78762b2bf29e1a04f45eab46564eb6d5835e08549c8ccd6fa771c609d  packer_0.12.1_freebsd_386.zip
+    493f9753eb7fd16e9c8f2a06e467a3a9ca2a40dd6efabedfcd2534d16bb40254  packer_0.12.1_freebsd_amd64.zip
+    1b5509e623aa73067c1f7c4f111edcb6ea337bf684c81d5d7b1e867588b520ed  packer_0.12.1_freebsd_arm.zip
+    bd8dd7d6a568e3fe38e9065a8396ac1a90e826c075d777aca67d3c2f70580b1b  packer_0.12.1_linux_386.zip
+    456e6245ea95705191a64e0556d7a7ecb7db570745b3b4b2e1ebf92924e9ef95  packer_0.12.1_linux_amd64.zip
+    3d833b570137c7d3d9a1e259dc97f063d5a231b3fb92355eb63278e424baabb5  packer_0.12.1_linux_arm.zip
+    8ac4ab9b3499674326dc39f45a33c21f2d863bab93de0b5904135be2af2a4c90  packer_0.12.1_openbsd_386.zip
+    bafb02c3e713768c001d458bdf371ce199831f51ce9b842728ff2531b05d2b46  packer_0.12.1_openbsd_amd64.zip
+    31548ff65ce8a2c8aa82ed798f993cdd0f2616920ebda7f275c030dd36256ded  packer_0.12.1_windows_386.zip
+    d6efb1f4dd5bce2bad30f5e767648e27c0591f2978d322a9f2d7055a46ecea0b  packer_0.12.1_windows_amd64.zip
+EOF
+
+node.default['packer']['0.12.2']['prefix'] = "packer_"
+node.default['packer']['0.12.2']['raw_checksums'] = <<-EOF
+    c7bc37eccee47b68d3198eca8da68a7f48bc74aff9807f5bc7ea7ca5a053c463  packer_0.12.2_darwin_386.zip
+    eef803cd43adc3b67593fd277f94b14ef266fe7124eb247d620beb29ebb4ec85  packer_0.12.2_darwin_amd64.zip
+    e5e07b74573cdb712412e96e1e24cd784d42674e519e0d0253d87819286bb2a6  packer_0.12.2_darwin_arm.zip
+    13ba36eb94f142b9d404bec3826be0d4fbea166478334b2a8ed90edd0b5bca43  packer_0.12.2_freebsd_386.zip
+    dff363b30cf5686adbeb60edbdf33812eeed908b4e715ca4082ec53ff51ffb8c  packer_0.12.2_freebsd_amd64.zip
+    06f612a436b320e14b18a0d266c30312fd3d0ed376dd425788b632b19e781e75  packer_0.12.2_freebsd_arm.zip
+    458e63a74104e3e550181f5cf2a20f29d79e326c518bcb5723399d4e56ff3f20  packer_0.12.2_linux_386.zip
+    035d0ea1fe785ab6b673bc2a79399125d4014f29151e106635fa818bb726bebf  packer_0.12.2_linux_amd64.zip
+    daecd0f9c9abb0735cab65029c5e2752c0105f58be58a3e5ea423d5fcbf52a77  packer_0.12.2_linux_arm.zip
+    1695210bc8d81bb0aaaa004bc41c65dda9b6d7eb5646a4c94cd1cc35b57293aa  packer_0.12.2_openbsd_386.zip
+    21bc55a12799867210f87a7e761cbe4a7be4b205b8b4c5823a7b9b23b5c283b8  packer_0.12.2_openbsd_amd64.zip
+    4e52975f3b46f97222858b2a1bf9bcd68d5485c3697775b3cfee98a16fce1812  packer_0.12.2_windows_386.zip
+    2d8704a958af1e593c56aaf7da2be511eda535dd6e509dec84dfe28e8c48c5b5  packer_0.12.2_windows_amd64.zip
+EOF
+
+node.default['packer']['0.12.3']['prefix'] = "packer_"
+node.default['packer']['0.12.3']['raw_checksums'] = <<-EOF
+    092490f0607cc6098290721efea918c733d37ca9872335aab02077a3fc5a2d0f  packer_0.12.3_darwin_386.zip
+    3109a4dbb66d5d55343c091a28d1a19352ea477a24b6c78c9da8f066d4c7f763  packer_0.12.3_darwin_amd64.zip
+    09e93b6be7a707f1bb734c8e5008e571cc4aff91d428dad9b79ae05514aea7cb  packer_0.12.3_freebsd_386.zip
+    f8ad4ed27be080bbaed83cefed62235d73eec7d0f426d0e59b122de4af02ab99  packer_0.12.3_freebsd_amd64.zip
+    e6e4af944d67322d57f230296013213098f95868499798b23c2928b7188f8c47  packer_0.12.3_freebsd_arm.zip
+    096b8762ff0dd7b95736ba690617b02c34576915fa1a4b60d99af9ed9f3a1006  packer_0.12.3_linux_386.zip
+    d11c7ff78f546abaced4fcc7828f59ba1346e88276326d234b7afed32c9578fe  packer_0.12.3_linux_amd64.zip
+    1df588c36e8450863fade72e34e9b8c63506847a6df2260093ea7de087263418  packer_0.12.3_linux_arm.zip
+    52353841b622d4b7c1088e33baf0f5babac958e618f721b54f8a227612306aea  packer_0.12.3_openbsd_386.zip
+    c8fddc64bb4b5e310f7d94b4609fe2f2c5fb6e896f2cd9fd9d8d1d51026e6036  packer_0.12.3_openbsd_amd64.zip
+    8c5c3529d8e33d3bcec2f3b9d91c7156525d7c37b10a958b3ffb936eddb473f0  packer_0.12.3_windows_386.zip
+    8ce6868205f9a9cf883d39d136d804c2bbe80aede0d2f09fe999807a82dc937b  packer_0.12.3_windows_amd64.zip
+EOF
+
 node.default['packer']['checksums'] = Hash[
     node['packer'][node['packer']['version']]['raw_checksums'].split("\n").collect { |s| s.split.reverse }
 ]
