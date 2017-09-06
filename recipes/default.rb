@@ -4,6 +4,7 @@
 #
 # Copyright (C) 2013 Hadapt, Inc.
 #
+include_recipe "apt"
 
 # Install packages necessary for extracting stuff
 include_recipe "ark"
