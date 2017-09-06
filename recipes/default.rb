@@ -5,9 +5,6 @@
 # Copyright (C) 2013 Hadapt, Inc.
 #
 include_recipe "apt"
-# execute "apt-get update" do
-#   "apt-get update"
-# end
 
 # Install packages necessary for extracting stuff
 include_recipe "ark"
