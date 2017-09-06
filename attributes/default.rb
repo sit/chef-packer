@@ -1,5 +1,5 @@
 node.default['packer']['url_base'] = 'https://releases.hashicorp.com/packer'
-node.default['packer']['version'] = '0.12.0'
+node.default['packer']['version'] = '1.0.4'
 node.default['packer'][node.default['packer']['version']]['prefix'] = ''
 node.default['packer']['arch'] = node['kernel']['machine'] =~ /x86_64/ ? "amd64" : "386"
 
@@ -117,6 +117,22 @@ node.default['packer']['0.12.0']['raw_checksums'] = <<-EOF
     8a48bb7865b22a219c6d0085e20d170cb0f852580732bf45016da43be4fd8131  packer_0.12.0_openbsd_amd64.zip
     1b346c6f381e21e92a589dfcc0eafc7c2b87f10cdfc524e3c7128dd0a64a9763  packer_0.12.0_windows_386.zip
     4d1f9733b3cafc9e0ab2b1e9957dc2621a57f209a78d51ac5f5312cbcbb4e300  packer_0.12.0_windows_amd64.zip
+EOF
+
+node.default['packer']['1.0.4']['prefix'] = "packer_"
+node.default['packer']['1.0.4']['raw_checksums'] = <<-EOF
+    39ffdb34ad57b639eac99c943dd84cdc2676195bd52cc9c3cc72d2485840c0c7  packer_0.12.0_darwin_386.zip
+    a7aef181b9f6371cd8d9c18dc110cd28684eb1095665ba4c9c28786d79d10f17  packer_0.12.0_darwin_amd64.zip
+    27c090bef906b6b98bc080d6acd6764626a7d640c1c895f085d67f08e83e74bd  packer_0.12.0_freebsd_386.zip
+    8c6aebcaf228d6883cd6afda4b88028cd8168fd04d92feb016b7b4a79571d0a2  packer_0.12.0_freebsd_amd64.zip
+    fb7ae008f05950a895e33c724722bb408a45918d0d5649c86a5631b087f3af17  packer_0.12.0_freebsd_arm.zip
+    b7f541c4a3b217cd0e38c3a13405cd3dcd29e3bd2d38fb8e20ae54b4b38a1014  packer_0.12.0_linux_386.zip
+    646da085cbcb8c666474d500a44d933df533cf4f1ff286193d67b51372c3c59e  packer_0.12.0_linux_amd64.zip
+    c35913e0fb48fcf28011a4268ff179812d84243088d7bb0931727cb54ee668a9  packer_0.12.0_linux_arm.zip
+    e19208bddc9da8844eaff96c49d7cb8269d5e43a546cee721683faf4b88641f0  packer_0.12.0_openbsd_386.zip
+    487ca4f29c327b389370768cb303ade4d791854918d52632be305ac9e614e64f  packer_0.12.0_openbsd_amd64.zip
+    8e05658de4ba4170530b5e73f6f241a8652a685517797c4323ea6e0b65a4f37c  packer_0.12.0_windows_386.zip
+    1a2ae283a71810a307299c05df73e96890fb7503f1b32c52850356ddb750d877  packer_0.12.0_windows_amd64.zip
 EOF
 
 node.default['packer']['checksums'] = Hash[
