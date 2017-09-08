@@ -1,3 +1,8 @@
+# Disclaimer
+
+This cookbook it not under active development.
+If you want to take it over, please open an issue.
+
 # packer cookbook
 
 Installs [Packer](http://packer.io/) using the [ark](https://github.com/opscode-cookbooks/ark) cookbook.
